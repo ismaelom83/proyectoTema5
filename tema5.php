@@ -81,7 +81,7 @@
            
                  <div class="footer-copyright text-center py-3"> <a href="../../../index.php">© 2019 Copyright: Ismael Heras Salvador</a> 
                     <a href="http://daw-usgit.sauces.local/heras/proyectoTema5/tree/master"><img  src="img/gitLab.png" alt=""></a>
-                    <a href="https://github.com/ismaelom83/proyectoDWES/tree/devTema5"><img  src="img/gitHub.png" alt=""></a>
+                    <a href="https://github.com/ismaelom83/proyectoTema5"><img  src="img/gitHub.png" alt=""></a>
                 </div>
            
             <!-- Copyright -->
