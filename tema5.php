@@ -59,7 +59,7 @@
                 </div>
                 <div >
                     <p>2. Desarrollo de un control de acceso con identificación del usuario basado en la función header() y
-                        en el uso de una tabla “Usuario” de la base de datos. (PDO).</p><a class="text-decoration-none" href="mostrarcodigo/muestraEjercicio01b.php"><p class="mostar">Ejecutar</p ></a>
+                        en el uso de una tabla “Usuario” de la base de datos. (PDO).</p><a class="text-decoration-none" href="codigoPHP/ejercicio2.php"><p class="mostar">Ejecutar</p ></a>
                     <hr>
                 </div>
                 <div >
@@ -78,12 +78,12 @@
         <!-- Footer -->
         <footer class="page-footer font-small blue  ">
             <!-- Copyright -->
-           
-                 <div class="footer-copyright text-center py-3"> <a href="../../../index.php">© 2019 Copyright: Ismael Heras Salvador</a> 
-                    <a href="http://daw-usgit.sauces.local/heras/proyectoTema5/tree/master"><img  src="img/gitLab.png" alt=""></a>
-                    <a href="https://github.com/ismaelom83/proyectoTema5"><img  src="img/gitHub.png" alt=""></a>
-                </div>
-           
+
+            <div class="footer-copyright text-center py-3"> <a href="../../../index.php">© 2019 Copyright: Ismael Heras Salvador</a> 
+                <a href="http://daw-usgit.sauces.local/heras/proyectoTema5/tree/master"><img  src="img/gitLab.png" alt=""></a>
+                <a href="https://github.com/ismaelom83/proyectoTema5"><img  src="img/gitHub.png" alt=""></a>
+            </div>
+
             <!-- Copyright -->
         </footer>
         <!-- Footer -->

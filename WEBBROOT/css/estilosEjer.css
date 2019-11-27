@@ -8,22 +8,18 @@
     box-sizing: border-box;
     font-family: 'Pacifico', cursive;
 }
-.crud{
-    margin-left: 100px;
-   display: inline-block;
-   float: right;
-}
-table{
-    margin: 0 auto;
-    padding: 10px;
-    
-}
+
+
 .navbar-brand{
     font-size: 36px; 
 }
 .navbar{      
         height: 100px;
         font-size: 36px;
+}
+
+.conexionOK{
+    font-size: 40px;
 }
 
 .nav-item{   
