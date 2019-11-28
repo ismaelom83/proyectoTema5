@@ -48,17 +48,20 @@
             if ($_SERVER['PHP_AUTH_USER'] !== "ismael" || $_SERVER['PHP_AUTH_PW'] !== "paso") {
                 header('WWW-Authenticate: Basic realm="Dominio crocretil (ismael/paso)"');
                 header('HTTP/1.0 401 Unauthorized');
-                echo "Operacion cancelada<br>";
+                echo "<h1>Operacion cancelada</h1>".'<br>';
+                ?>
 
+                <a class="btn btn-warning" href="../tema5.php">Salir</a>
+                <?php
                 exit;
             } else if (($_SERVER["PHP_AUTH_USER"] == "ismael") && ($_SERVER["PHP_AUTH_PW"] == "paso")) {
-                echo "Usuario: " . $_SERVER['PHP_AUTH_USER'] . "<br/>";
-                echo "Password: " . $_SERVER['PHP_AUTH_PW'];
+                echo '<h3>' . "Usuario: " . $_SERVER['PHP_AUTH_USER'] . '</h3>' . "<br/>";
+                echo '<h3>' . "Password: " . $_SERVER['PHP_AUTH_PW'] . '</h3>';
                 echo '<br>';
                 ?>
-                <h2>Autenticacion con exito</h2>
-                <a class="btn btn-primary" href="detalle.php">DETALLE</a>
-                <a class="btn btn-info" href="../tema5.php">VOLVER</a>
+                <h1>Autenticacion con exito</h1><br>
+                <a class="btn btn-success" href="detalle.php">DETALLE</a>
+                <a class="btn btn-warning" href="../tema5.php">VOLVER</a>
 
                 <?php
             }

@@ -21,19 +21,23 @@ and open the template in the editor.
              * @author Ismael Heras 
              * @since 28/11/2019
              */
-             foreach ($GLOBALS as $todo => $variable) {
-            if (is_array($variable)) {
-                if ($variable != $GLOBALS) {
-                    echo"<h2>" . $todo . "</h2><table>";
-                    foreach ($variable as $indice => $contenido) {
-                        echo'<tr><td>' . $indice . '</td><td>[' . "'" . $contenido . "']</td></tr>";
-                    }
-                    echo"</table><br/>";
-                }
-            } else {
-                echo $variable . "<br/>";
-            }
-        }
+            echo 'Variables Superglobales';
+            echo '<h3>Variable $Server</h3>';
+            echo "<pre style='text-align:left;'>";
+            print_r($_SERVER) . '<br>';
+            echo "</pre>";
+            echo '<h3>Variable Env</h3>';
+            print_r($_ENV) . '<br>';
+            echo '<h3>Variable Files</h3>';
+            print_r($_FILES) . '<br>';
+            echo '<h3>Variable Get</h3>';
+            print_r($_GET) . '<br>';
+            echo '<h3>Variable Post</h3>';
+            print_r($_POST) . '<br>';
+            echo '<h3>Variable Request</h3>';
+            print_r($_REQUEST) . '<br>';
+            echo '<h3>Variable Session</h3>';
+            print_r($_SESSION);
            
             ?>
     </body>
