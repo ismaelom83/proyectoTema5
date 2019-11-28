@@ -3,7 +3,7 @@
          * @author Ismael Heras
          * @since 27/11/2019
          */
-        include '../config/constantes.php'; //Importo los datos de conexión
+        include '../config/constantes.php'; 
         try{
             $miBD = new PDO(MAQUINA, USUARIO, PASSWD);
             $miBD->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -13,8 +13,6 @@
             if(!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW'])){
                 header('WWW-Authenticate: Basic realm=""');
                 header('HTTP/1.0 401 Unauthorized');
-                echo "<h3>volver atras</h3>";
-                exit;
-                        
+                                 
             }                    
         ?>

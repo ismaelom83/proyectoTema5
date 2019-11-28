@@ -64,7 +64,7 @@
                 </div>
                 <div >
                     <p>3. Desarrollo de una aplicación (Proyecto LoginLogoff) con control de acceso e identificación del
-                        usuario basado en un formulario (Login.php) con un botón de “Entrar”.</p><a class="text-decoration-none" href="mostrarcodigo/muestraEjercicio01b.php"><p class="mostar">Ejecutar</p ></a>
+<!--                        usuario basado en un formulario (Login.php) con un botón de “Entrar”.</p><a class="text-decoration-none" href="mostrarcodigo/muestraEjercicio01b.php"><p class="mostar">Ejecutar</p ></a>-->
                     <hr>
                 </div>
 
