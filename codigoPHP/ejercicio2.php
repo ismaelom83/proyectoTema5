@@ -11,8 +11,8 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
     header('HTTP/1.0 401 Unauthorized');
     echo "¿Quieres cancelar?, volver para atrás<br>";
     ?>
-<a class="btn btn-warning" href="../tema5.php">VOLVER</a>
-<?php
+    <a class="btn btn-warning" href="../tema5.php">VOLVER</a>
+    <?php
     exit;
 }
 ?>
@@ -61,9 +61,10 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
             require '../config/constantes.php';
             $usuario = $_SERVER['PHP_AUTH_USER'];
             $passwd = $_SERVER['PHP_AUTH_PW'];
-            echo '<h3>'."Nombre de usuario: " . $usuario .'</h3>'. "<br />";
-            echo '<h3>'."Contraseña: " . $passwd .'</h3>'. "<br />";
+            echo '<h3>' . "Nombre de usuario: " . $usuario . '</h3>' . "<br />";
+            echo '<h3>' . "Contraseña: " . $passwd . '</h3>' . "<br />";
             try {
+
                 //conexion a la base de datos.
                 $miBD = new PDO(MAQUINA, USUARIO, PASSWD);
                 $miBD->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -73,24 +74,37 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
                 //almacenamos en una variable (objeto PDOestatement) la consulta preparada
                 $oPDO = $miBD->prepare($SQL);
                 //blindeamos los parametros
-                $oPDO->bindValue(':user',  $usuario);
+                $oPDO->bindValue(':user', $usuario);
                 //la contraseña es paso, pero para resumirla -> sha + contraseña=concatenacion de nombre+password
                 $oPDO->bindValue(':hash', hash('sha256', $usuario . $passwd));
                 $oPDO->execute();
+
+                //almacenamos todos los datos de la consulta en un array para mostar por pantalla luego los datos del registro e l asesion del usuario.
+                $resultado = $oPDO->fetch(PDO::FETCH_ASSOC);
+
+
                 //recorremos todos los campos de la base de datos y si coincide en uno ejecuta el if y nos dice
                 //que el usuario es correcto y nos muestra los datos(contraseña y password),si no ejecuta el else y nos dice 
                 //que no existe el usuario.
                 if ($oPDO->rowCount() == 1) {
                     ?>
                     <h1>Usuario Correcto</h1><br>
-                    <input type="button" class="btn btn-success" value="DETALLE" onclick="location = 'detalle.php'">
-                    <input type="button" class="btn btn-warning" value="VOLVER" onclick="location = '../tema5.php'">
+                    <input type="button" class="btn btn-success" value="DETALLE" onclick="location = 'detalle2.php'">
+                    <input type="button" class="btn btn-warning" value="SALIR" onclick="location = '../tema5.php'">
                     <?php
+                    session_start();
+                    $_SESSION['clave'] = $resultado['CodUsuario'];
+                    $_SESSION['descripcion'] = $resultado['DescUsuario'];
+                    $_SESSION['fechaCreacionRegistro'] = $resultado['FechaHoraUltimaConexion'];
                 } else {
+                    header('WWW-Authenticate: Basic Realm=" ismael / paso"');
+                    header('HTTP/1.0 401 Unauthorized');
+                    echo 'Estos usuarios no coinciden con ninguno';
+                    echo "¿Quieres cancelar?, volver para atrás<br>";
                     ?>
-                    <h1>Usuario Incorrecto</h1><br>
-                    <input type="button" class="btn btn-warning" value="VOLVER" onclick="location = '../tema5.php'">
+                    <a class="btn btn-warning" href="../tema5.php">VOLVER</a>                  
                     <?php
+                     exit;
                 }
                 //cath que se ejecuta si habido un error
             } catch (PDOException $excepcion) {

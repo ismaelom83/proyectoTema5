@@ -55,13 +55,16 @@
                 <?php
                 exit;
             } else if (($_SERVER["PHP_AUTH_USER"] == "ismael") && ($_SERVER["PHP_AUTH_PW"] == "paso")) {
-                echo '<h3>' . "Usuario: " . $_SERVER['PHP_AUTH_USER'] . '</h3>' . "<br/>";
-                echo '<h3>' . "Password: " . $_SERVER['PHP_AUTH_PW'] . '</h3>';
+                session_start();
+                echo '<h3>' . "Usuario: " .$sesionU= $_SERVER['PHP_AUTH_USER'] . '</h3>' . "<br/>";
+                echo '<h3>' . "Password: " . $sesionP= $_SERVER['PHP_AUTH_PW'] . '</h3>';
                 echo '<br>';
+                $_SESSION['usuario']=$sesionU;
+                $_SESSION['password']=$sesionP;
                 ?>
                 <h1>Autenticacion con exito</h1><br>
-                <a class="btn btn-success" href="detalle.php">DETALLE</a>
-                <a class="btn btn-warning" href="../tema5.php">VOLVER</a>
+                <a class="btn btn-success" href="detalle1.php">DETALLE</a>
+                <a class="btn btn-warning" href="../tema5.php">SALIR</a>
 
                 <?php
             }
