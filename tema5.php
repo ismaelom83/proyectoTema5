@@ -64,7 +64,7 @@
                 </div>
                 <div >
                     <p>3. Desarrollo de una aplicación (Proyecto LoginLogoff) con control de acceso e identificación del
-                        usuario basado en un formulario (Login.php) con un botón de “Entrar”.</p><a class="text-decoration-none" href="../ ProyectoLoginLogoff/codigoPHP/login.php"><p class="mostar">Ejecutar</p ></a>
+                        usuario basado en un formulario (Login.php) con un botón de “Entrar”.</p><a class="text-decoration-none" href="../ProyectoLoginLogoff/codigoPHP/login.php"><p class="mostar">Ejecutar</p ></a>
                     <hr>
                 </div>
 
@@ -80,7 +80,7 @@
             <!-- Copyright -->
 
             <div class="footer-copyright text-center py-3"> <a href="../../../index.php">© 2019 Copyright: Ismael Heras Salvador</a> 
-                <a href="http://daw-usgit.sauces.local/heras/proyectoTema5/tree/master"><img  src="img/gitLab.png" alt=""></a>
+                <a href="http://daw-usgit.sauces.local/heras/proyectoTema5/tree/developer"><img  src="img/gitLab.png" alt=""></a>
                 <a href="https://github.com/ismaelom83/proyectoTema5"><img  src="img/gitHub.png" alt=""></a>
             </div>
 
