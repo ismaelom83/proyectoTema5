@@ -59,12 +59,12 @@
                 echo '<h3>' . "Usuario: " .$sesionU= $_SERVER['PHP_AUTH_USER'] . '</h3>' . "<br/>";
                 echo '<h3>' . "Password: " . $sesionP= $_SERVER['PHP_AUTH_PW'] . '</h3>';
                 echo '<br>';
-                $_SESSION['usuario']=$sesionU;
+                $_SESSION['usuarioDAW209AppLOginLogoff']=$sesionU;
                 $_SESSION['password']=$sesionP;
                 ?>
                 <h1>Autenticacion con exito</h1><br>
                 <a class="btn btn-success" href="detalle.php">DETALLE</a>
-                <a class="btn btn-warning" href="../tema5.php">SALIR</a>
+                <a class="btn btn-warning" href="borrarSesion.php">CerrarSesion</a>
 
                 <?php
             }
