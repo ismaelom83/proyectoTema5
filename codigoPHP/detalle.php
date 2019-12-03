@@ -16,7 +16,7 @@ and open the template in the editor.
     </head>
     <body>
         <h1>Conexion correcta</h1>
-        <a href="ejercicio2.php"><img src="../img/volver.png" alt="" style="position: fixed; bottom: 0; right: 0;"></a>
+        <a href="ejercicio1.php"><img src="../img/volver.png" alt="" style="position: fixed; bottom: 0; right: 0;"></a>
          <?php
            /**
              * @author Ismael Heras 
@@ -41,8 +41,6 @@ and open the template in the editor.
             print_r($_SERVER) . '<br>';
             echo "</pre>";
            echo '</div>';
-            
-            phpinfo();
             ?>
     </body>
 </html>

@@ -89,7 +89,7 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
                 if ($oPDO->rowCount() == 1) {
                     ?>
                     <h1>Usuario Correcto</h1><br>
-                    <input type="button" class="btn btn-success" value="DETALLE" onclick="location = 'ejercicio0.php'">
+                    <input type="button" class="btn btn-success" value="DETALLE" onclick="location = 'detalle.php'">
                     <input type="button" class="btn btn-warning" value="SALIR" onclick="location = '../tema5.php'">
                     <?php
                     session_start();

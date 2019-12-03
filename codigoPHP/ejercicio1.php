@@ -63,7 +63,7 @@
                 $_SESSION['password']=$sesionP;
                 ?>
                 <h1>Autenticacion con exito</h1><br>
-                <a class="btn btn-success" href="ejercicio0.php">DETALLE</a>
+                <a class="btn btn-success" href="detalle.php">DETALLE</a>
                 <a class="btn btn-warning" href="../tema5.php">SALIR</a>
 
                 <?php
