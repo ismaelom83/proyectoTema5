@@ -1,24 +1,11 @@
 
 
 
-
-
-
 <!DOCTYPE html>
-<?php
-if (!isset($_SERVER['PHP_AUTH_USER'])) {
-    header('WWW-Authenticate: Basic Realm=" ismael / paso"');
-    header('HTTP/1.0 401 Unauthorized');
-    echo "¿Quieres cancelar?, volver para atrás<br>";
-    ?>
-    <a class="btn btn-warning" href="../tema5.php">VOLVER</a>
-    <?php
-    exit;
-}
-?>
+
 <html>
     <head>
-        <title>Ejercicio2 Tema5</title>
+        <title>Ejercicio0 Tema5</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../WEBBROOT/css/estilosEjer.css">
@@ -53,71 +40,34 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
 
             </div>
         </nav>
-
     </header>
     <body>
         <main>
             <?php
-            require '../config/constantes.php';
-            $usuario = $_SERVER['PHP_AUTH_USER'];
-            $passwd = $_SERVER['PHP_AUTH_PW'];
-            echo '<h3>' . "Nombre de usuario: " . $usuario . '</h3>' . "<br />";
-            echo '<h3>' . "Contraseña: " . $passwd . '</h3>' . "<br />";
-            try {
-                  
-                
-                //conexion a la base de datos.
-                $miBD = new PDO(MAQUINA, USUARIO, PASSWD);
-                $miBD->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                //con este query buscamos en la base de datos
-                $SQL = "SELECT * FROM Usuario WHERE CodUsuario = :user AND Password = :hash";
+            if ($_SERVER['PHP_AUTH_USER'] !== "ismael" || $_SERVER['PHP_AUTH_PW'] !== "paso") {
+                header('WWW-Authenticate: Basic realm="Dominio crocretil (ismael/paso)"');
+                header('HTTP/1.0 401 Unauthorized');
+                echo "<h1>Operacion cancelada</h1>".'<br>';
+                ?>
 
-                //almacenamos en una variable (objeto PDOestatement) la consulta preparada
-                $oPDO = $miBD->prepare($SQL);
-                //blindeamos los parametros
-                $oPDO->bindValue(':user', $usuario);
-                //la contraseña es paso, pero para resumirla -> sha + contraseña=concatenacion de nombre+password
-                $oPDO->bindValue(':hash', hash('sha256', $usuario . $passwd));
-                $oPDO->execute();
+                <a class="btn btn-warning" href="../tema5.php">Salir</a>
+                <?php
+                exit;
+            } else if (($_SERVER["PHP_AUTH_USER"] == "ismael") && ($_SERVER["PHP_AUTH_PW"] == "paso")) {
+                session_start();
+                echo '<h3>' . "Usuario: " .$sesionU= $_SERVER['PHP_AUTH_USER'] . '</h3>' . "<br/>";
+                echo '<h3>' . "Password: " . $sesionP= $_SERVER['PHP_AUTH_PW'] . '</h3>';
+                echo '<br>';
+                $_SESSION['usuarioDAW209AppLOginLogoff']=$sesionU;
+                $_SESSION['password']=$sesionP;
+                ?>
+                <h1>Autenticacion con exito</h1><br>
+                <a class="btn btn-success" href="detalle.php">DETALLE</a>
+                <a class="btn btn-warning" href="borrarSesion.php">CerrarSesion</a>
 
-                //almacenamos todos los datos de la consulta en un array para mostar por pantalla luego los datos del registro e l asesion del usuario.
-                $resultado = $oPDO->fetch(PDO::FETCH_ASSOC);
-
-
-                //recorremos todos los campos de la base de datos y si coincide en uno ejecuta el if y nos dice
-                //que el usuario es correcto y nos muestra los datos(contraseña y password),si no ejecuta el else y nos dice 
-                //que no existe el usuario.
-                if ($oPDO->rowCount() == 1) {
-                    //iniciamos sesion
-                     session_start();
-                    $_SESSION['usuarioDAW209AppLOginLogoff'] = $resultado['CodUsuario'];
-                    $_SESSION['descripcion'] = $resultado['DescUsuario'];
-                    $_SESSION['fechaCreacionRegistro'] = $resultado['FechaHoraUltimaConexion'];
-                    ?>
-                    <h1>Usuario Correcto</h1><br>
-                    <input type="button" class="btn btn-success" value="DETALLE" onclick="location = 'detalle.php'">
-                    <input type="button" class="btn btn-warning" value="CerrarSesion" onclick="location = 'borrarSesion.php'">
-                    <?php
-                   
-                } else {
-                    header('WWW-Authenticate: Basic Realm=" ismael / paso"');
-                    header('HTTP/1.0 401 Unauthorized');
-                    echo 'Estos usuarios no coinciden con ninguno';
-                    echo "¿Quieres cancelar?, volver para atrás<br>";
-                    ?>
-                    <a class="btn btn-warning" href="../tema5.php">VOLVER</a>                  
-                    <?php
-                     exit;
-                }
-                //cath que se ejecuta si habido un error
-            } catch (PDOException $excepcion) {
-                echo "<h1>Se ha producido un error</h1>";
-                //nos muestra el error que ha ocurrido.
-                echo $excepcion->getMessage();
-            } finally {
-                unset($miBD); //cerramos la conexion a la base de datos.
+                <?php
             }
-            ?>          
+            ?>
             <br/>
             <br/>
             <footer class="page-footer font-small blue load-hidden">
@@ -134,3 +84,39 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
     </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
