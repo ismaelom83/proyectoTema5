@@ -10,7 +10,7 @@
             //puede por que no se ha logeado y por lo tanto la variable de sesion de clave de usuario no existe
             if (!isset($_SESSION['usuarioDAW209AppLOginLogoff'])) {
                 
-               header('Location: ../tema5.php');
+               header('Location: ../../ProyectoLoginLogoff/codigoPHP/login.php');
                 die();
             } else {//si existe la sesion mostramos los datos del usuario.
             echo 'Variables Superglobales';
